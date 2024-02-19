@@ -1,0 +1,61 @@
+{
+    "states": [
+      {
+        "name": "Initial",
+        "prompt": "Hi there! Welcome to the Drone Mission Planner. How can I assist you today?",
+        "regex_actions": [
+          {
+            "regex": "\\b(mapping)\\b",
+            "action": "Match mapping"
+          },
+          {
+            "regex": "\\b(surveillance)\\b",
+            "action": "Match surveillance"
+          },
+          {
+            "regex": "\\b(photography)\\b",
+            "action": "Match photography"
+          }
+        ]
+      },
+      {
+        "name": "Mapping",
+        "prompt": "Great! Could you please specify the area you want to map? You can provide either the coordinates or the address.",
+        "regex_actions": [
+          {
+            "regex": "\\b(\\d{5})\\b",
+            "action": "Match ZIP code"
+          },
+          {
+            "regex": "\\b([A-Z][a-z]+,\\s[A-Z]{2})\\b",
+            "action": "Match city, state"
+          }
+        ]
+      },
+      {
+        "name": "Surveillance",
+        "prompt": "Understood. Could you please provide details about the area you want to surveil? Is it a specific location or a general area?",
+        "regex_actions": [
+          {
+            "regex": "\\b([A-Z][a-z]+,\\s[A-Z]{2})\\b",
+            "action": "Match city, state"
+          }
+        ]
+      },
+      {
+        "name": "Photography",
+        "prompt": "Excellent! What type of photography are you interested in? Aerial landscapes, event coverage, or something else?",
+        "regex_actions": [
+          {
+            "regex": "\\b(aerial landscapes)\\b",
+            "action": "Match aerial landscapes"
+          },
+          {
+            "regex": "\\b(event coverage)\\b",
+            "action": "Match event coverage"
+          }
+        ]
+      }
+    ]
+}
+  

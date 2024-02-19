@@ -1,0 +1,82 @@
+{
+    "Initial": {
+      "prompt": "Hi there! I'm your drone mission planner. Are you interested in planning a mission?",
+      "options": ["yes", "no"],
+      "transitions": {
+        "yes": "MissionType",
+        "no": "End"
+      }
+    },
+    "MissionType": {
+      "prompt": "Great! What type of mission are you planning?",
+      "options": ["mapping", "surveillance", "photography"],
+      "transitions": {
+        "mapping": "Mapping",
+        "surveillance": "Surveillance",
+        "photography": "Photography",
+        "thread":"NewThread"
+      }
+    },
+    "Mapping": {
+      "prompt": "Mapping mission selected. Please specify the area you want to map. You can provide either the coordinates or the address.",
+      "options": ["coordinates", "address"],
+      "transitions": {
+        "coordinates": "Coordinates",
+        "address": "Address"
+      }
+    },
+    "Surveillance": {
+      "prompt": "Surveillance mission selected. Please provide details about the area you want to surveil.",
+      "options": ["location"],
+      "transitions": {
+        "location": "LocationDetails"
+      }
+    },
+    "Photography": {
+      "prompt": "Photography mission selected. What type of photography are you interested in?",
+      "options": ["aerial", "event"],
+      "transitions": {
+        "aerial": "AerialPhotography",
+        "event": "EventPhotography"
+      }
+    },
+    "Coordinates": {
+      "prompt": "Please enter the coordinates for the area you want to map.",
+      "options": [],
+      "transitions": {}
+    },
+    "Address": {
+      "prompt": "Please enter the address for the area you want to map.",
+      "options": [],
+      "transitions": {}
+    },
+    "LocationDetails": {
+      "prompt": "Please provide more details about the area you want to surveil.",
+      "options": [],
+      "transitions": {}
+    },
+    "AerialPhotography": {
+      "prompt": "Aerial photography selected. Please specify any specific locations or preferences.",
+      "options": [],
+      "transitions": {}
+    },
+    "EventPhotography": {
+      "prompt": "Event photography selected. Please specify the event details.",
+      "options": [],
+      "transitions": {}
+    },
+    "End": {
+      "prompt": "Thank you for using the drone mission planner.",
+      "options": [],
+      "transitions": {}
+    },
+    "NewThread": {
+      "prompt": "Do you want to start a new thread?",
+      "options": ["yes", "no"],
+      "transitions": {
+        "yes": "Initial",
+        "no": "End"
+      }
+    }
+}
+  
